@@ -64,8 +64,25 @@ nail-salon/
 │   ├── reveal.tsx          # Animation au scroll
 │   └── sparkles.tsx        # Effet décoratif
 └── public/
-    └── images/             # Photos des créations
+    └── images/
+        ├── img/            # Assets réels du salon (à intégrer)
+        └── *.png           # Photos de galerie actuelles
 ```
+
+---
+
+## Assets disponibles (`public/images/img/`)
+
+Assets réels fournis par le salon, prêts à intégrer :
+
+| Fichier | Contenu | Usage prévu |
+|---|---|---|
+| `logo-removebg-preview.png` | Logo AURALUX fond transparent | Hero + Navbar (remplace le logo actuel) |
+| `logo.jpeg` | Logo sur fond bordeaux brand | Open Graph / `og:image` |
+| `nail.jpeg` | Photo réelle : chrome or + papillon orange + perles | Galerie — vraie création du salon |
+| `bg color.jpeg` | Dégradé rose-prune-violet | Background hero ou sections |
+| `coupe ongle.jpeg` | Gabarits illustrés des formes d'ongles | Section Services — guide visuel |
+| `video nails.mp4` | Vidéo de nail art en cours | Hero background video ou section Reel |
 
 ---
 
