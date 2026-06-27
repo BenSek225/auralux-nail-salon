@@ -22,6 +22,11 @@ const creations = [
     alt: 'Bouts des ongles ornés de cristaux et strass dorés',
     label: 'Bijoux & cristaux',
   },
+  {
+    src: '/images/img/nail.jpeg',
+    alt: 'Création originale : ongles chrome doré avec motif papillon orange et perles dorées',
+    label: 'Papillon doré',
+  },
 ]
 
 export function Gallery() {
@@ -35,9 +40,9 @@ export function Gallery() {
           </h2>
         </Reveal>
 
-        <div className="mt-14 grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4">
+        <div className="mt-14 grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-5">
           {creations.map((c, i) => (
-            <Reveal key={c.src} delay={i * 120} className="group">
+            <Reveal key={c.src} delay={i * 120} className={`group${i === 4 ? ' col-span-2 lg:col-span-1' : ''}`}>
               <figure className="relative overflow-hidden rounded-2xl border border-gold/20 transition-all duration-500 group-hover:border-gold/70 group-hover:shadow-[0_0_30px_rgba(201,168,76,0.4)]">
                 <div className="relative aspect-[3/4]">
                   <Image

@@ -27,19 +27,17 @@ export function Hero() {
       />
 
       <div className="relative z-10 flex w-full max-w-2xl flex-col items-center">
-        <div className="relative mb-2 h-36 w-36 sm:h-44 sm:w-44">
+        <div className="relative mb-4 h-56 w-56 sm:h-72 sm:w-72">
           <Image
-            src="/images/auralux-logo.png"
+            src="/images/img/logo-removebg-preview.png"
             alt="Logo AURALUX : une main délicate dans une arche dorée entourée de cristaux"
             fill
             priority
-            className="object-contain drop-shadow-[0_0_25px_rgba(201,168,76,0.35)]"
+            className="object-contain drop-shadow-[0_0_35px_rgba(201,168,76,0.45)]"
           />
         </div>
 
-        <h1 className="font-serif text-5xl font-bold tracking-[0.12em] text-gold-gradient sm:text-7xl">
-          AURALUX
-        </h1>
+        <h1 className="sr-only">AURALUX</h1>
 
         <p className="mt-4 font-serif text-lg italic text-ivory/90 sm:text-2xl">
           {'« L\'aura au bout des doigts. »'}
