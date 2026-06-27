@@ -19,7 +19,9 @@ export const metadata: Metadata = {
   title: 'AURALUX — L\'aura au bout des doigts',
   description:
     "L'art de la manucure d'exception. Des créations uniques, imaginées sur-mesure pour révéler votre véritable identité.",
-  generator: 'v0.app',
+  openGraph: {
+    images: [{ url: '/images/img/logo.jpeg' }],
+  },
 }
 
 export const viewport: Viewport = {

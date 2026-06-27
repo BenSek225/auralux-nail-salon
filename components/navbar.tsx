@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import Image from 'next/image'
 import { InstagramIcon } from '@/components/instagram-icon'
 
 const LINKS = [
@@ -42,11 +43,14 @@ export function Navbar() {
       >
       <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
         {/* Left: wordmark */}
-        <a
-          href="#accueil"
-          className="font-serif text-2xl font-bold tracking-[0.15em] text-gold-gradient"
-        >
-          AURALUX
+        <a href="#accueil" aria-label="AURALUX — Accueil">
+          <Image
+            src="/images/img/logo_texte-removebg-preview.png"
+            alt="AURALUX"
+            width={120}
+            height={28}
+            className="object-contain drop-shadow-[0_0_10px_rgba(201,168,76,0.4)]"
+          />
         </a>
 
         {/* Center: desktop links */}
@@ -97,9 +101,13 @@ export function Navbar() {
         }`}
       >
         <div className="flex h-16 items-center justify-between px-6">
-          <span className="font-serif text-2xl font-bold tracking-[0.15em] text-gold-gradient">
-            AURALUX
-          </span>
+          <Image
+            src="/images/img/logo_texte-removebg-preview.png"
+            alt="AURALUX"
+            width={120}
+            height={28}
+            className="object-contain drop-shadow-[0_0_10px_rgba(201,168,76,0.4)]"
+          />
           <button
             type="button"
             onClick={() => setMenuOpen(false)}

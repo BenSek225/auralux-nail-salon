@@ -27,13 +27,25 @@ export function Hero() {
       />
 
       <div className="relative z-10 flex w-full max-w-2xl flex-col items-center">
-        <div className="relative mb-4 h-56 w-56 sm:h-72 sm:w-72">
+        {/* Illustration */}
+        <div className="relative mb-2 h-48 w-48 sm:h-64 sm:w-64">
           <Image
-            src="/images/img/logo-removebg-preview.png"
-            alt="Logo AURALUX : une main délicate dans une arche dorée entourée de cristaux"
+            src="/images/img/logo_simple-removebg-preview.png"
+            alt="Emblème AURALUX : une main délicate tenant un cristal lumineux dans une arche dorée"
             fill
             priority
             className="object-contain drop-shadow-[0_0_35px_rgba(201,168,76,0.45)]"
+          />
+        </div>
+
+        {/* Wordmark image */}
+        <div className="relative h-14 w-64 sm:h-16 sm:w-80">
+          <Image
+            src="/images/img/logo_texte-removebg-preview.png"
+            alt="AURALUX"
+            fill
+            priority
+            className="object-contain drop-shadow-[0_0_20px_rgba(201,168,76,0.5)]"
           />
         </div>
 
