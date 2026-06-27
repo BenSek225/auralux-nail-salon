@@ -1,0 +1,159 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: var(--font-inter), 'Inter Fallback', sans-serif;
+  --font-serif: var(--font-playfair), 'Playfair Display Fallback', serif;
+  --font-heading: var(--font-playfair), 'Playfair Display Fallback', serif;
+  --font-mono: var(--font-inter), monospace;
+
+  /* Brand palette */
+  --color-burgundy: var(--burgundy);
+  --color-plum: var(--plum);
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-ivory: var(--ivory);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+}
+
+:root {
+  color-scheme: dark;
+
+  /* Raw brand colors */
+  --burgundy: #6b1530;
+  --plum: #2d0a3e;
+  --gold: #c9a84c;
+  --gold-soft: #e3cd8a;
+  --ivory: #faf7f2;
+
+  --background: #2d0a3e;
+  --foreground: #faf7f2;
+  --card: #3a0f24;
+  --card-foreground: #faf7f2;
+  --popover: #3a0f24;
+  --popover-foreground: #faf7f2;
+  --primary: #c9a84c;
+  --primary-foreground: #2d0a3e;
+  --secondary: #6b1530;
+  --secondary-foreground: #faf7f2;
+  --muted: #45123a;
+  --muted-foreground: #d8c7b8;
+  --accent: #c9a84c;
+  --accent-foreground: #2d0a3e;
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: rgba(201, 168, 76, 0.25);
+  --input: rgba(201, 168, 76, 0.3);
+  --ring: #c9a84c;
+  --radius: 0.75rem;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+    scroll-behavior: smooth;
+    scroll-padding-top: 4rem;
+  }
+}
+
+/* Velvet radial gradient background */
+.bg-velvet {
+  background-color: #2d0a3e;
+  background-image:
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(107, 21, 48, 0.85), transparent 70%),
+    radial-gradient(ellipse 70% 70% at 80% 30%, rgba(107, 21, 48, 0.5), transparent 60%),
+    radial-gradient(circle at 20% 80%, rgba(45, 10, 62, 0.9), transparent 60%),
+    linear-gradient(160deg, #2d0a3e 0%, #4a0f33 45%, #6b1530 100%);
+}
+
+.text-gold-gradient {
+  background: linear-gradient(135deg, #e7d49a 0%, #c9a84c 45%, #9c7e32 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Sparkle / shimmer */
+@keyframes sparkle-float {
+  0%,
+  100% {
+    opacity: 0;
+    transform: translateY(0) scale(0.6);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-12px) scale(1);
+  }
+}
+
+@keyframes shimmer-sweep {
+  0% {
+    transform: translateX(-150%) rotate(8deg);
+  }
+  100% {
+    transform: translateX(250%) rotate(8deg);
+  }
+}
+
+.sparkle {
+  animation: sparkle-float 4s ease-in-out infinite;
+}
+
+/* Fade-in on scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .sparkle {
+    animation: none;
+  }
+}
