@@ -1,6 +1,7 @@
 'use client'
 
-import { useEffect, useRef, useState, type ReactNode } from 'react'
+import { motion } from 'framer-motion'
+import { type ReactNode } from 'react'
 import { cn } from '@/lib/utils'
 
 interface RevealProps {
@@ -10,37 +11,33 @@ interface RevealProps {
   as?: 'div' | 'section' | 'li' | 'article'
 }
 
+const MotionComponents = {
+  div: motion.div,
+  section: motion.section,
+  li: motion.li,
+  article: motion.article,
+} as const
+
+const variants = {
+  hidden: { opacity: 0, y: 28 },
+  visible: { opacity: 1, y: 0 },
+}
+
 export function Reveal({ children, className, delay = 0, as = 'div' }: RevealProps) {
-  const ref = useRef<HTMLElement | null>(null)
-  const [visible, setVisible] = useState(false)
-
-  useEffect(() => {
-    const node = ref.current
-    if (!node) return
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setVisible(true)
-            observer.unobserve(entry.target)
-          }
-        })
-      },
-      { threshold: 0.15, rootMargin: '0px 0px -60px 0px' },
-    )
-
-    observer.observe(node)
-    return () => observer.disconnect()
-  }, [])
-
-  const Tag = as as 'div'
+  const Tag = MotionComponents[as]
 
   return (
     <Tag
-      ref={ref as React.RefObject<HTMLDivElement>}
-      className={cn('reveal', visible && 'is-visible', className)}
-      style={{ transitionDelay: `${delay}ms` }}
+      className={cn(className)}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: '-60px' }}
+      variants={variants}
+      transition={{
+        duration: 0.9,
+        ease: [0.16, 1, 0.3, 1],
+        delay: delay / 1000,
+      }}
     >
       {children}
     </Tag>

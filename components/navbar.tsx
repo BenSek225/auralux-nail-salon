@@ -17,12 +17,28 @@ const INSTAGRAM_URL = 'https://www.instagram.com/auralux_by_mrn'
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+  const [activeSection, setActiveSection] = useState('#accueil')
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24)
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  useEffect(() => {
+    const ids = ['accueil', 'creations', 'services', 'reservation', 'contact']
+    const observers = ids.map((id) => {
+      const el = document.getElementById(id)
+      if (!el) return null
+      const obs = new IntersectionObserver(
+        ([entry]) => { if (entry.isIntersecting) setActiveSection(`#${id}`) },
+        { threshold: 0.35 },
+      )
+      obs.observe(el)
+      return obs
+    })
+    return () => observers.forEach((o) => o?.disconnect())
   }, [])
 
   useEffect(() => {
@@ -49,6 +65,7 @@ export function Navbar() {
             alt="AURALUX"
             width={120}
             height={28}
+            style={{ height: 'auto' }}
             className="object-contain drop-shadow-[0_0_10px_rgba(201,168,76,0.4)]"
           />
         </a>
@@ -59,7 +76,9 @@ export function Navbar() {
             <li key={link.href}>
               <a
                 href={link.href}
-                className="text-sm tracking-wide text-ivory/80 transition-colors duration-300 hover:text-gold"
+                className={`text-sm tracking-wide transition-colors duration-300 hover:text-gold ${
+                  activeSection === link.href ? 'text-gold' : 'text-ivory/80'
+                }`}
               >
                 {link.label}
               </a>
@@ -106,6 +125,7 @@ export function Navbar() {
             alt="AURALUX"
             width={120}
             height={28}
+            style={{ height: 'auto' }}
             className="object-contain drop-shadow-[0_0_10px_rgba(201,168,76,0.4)]"
           />
           <button
