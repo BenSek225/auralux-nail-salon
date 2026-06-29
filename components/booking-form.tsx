@@ -11,7 +11,7 @@ const PRESTATIONS = [
   'Création sur-mesure',
 ]
 
-const WHATSAPP_NUMBER = '33662164536'
+const SNAPCHAT_URL = 'https://www.snapchat.com/add/mrn.ba'
 
 export function BookingForm() {
   const [name, setName] = useState('')
@@ -22,35 +22,7 @@ export function BookingForm() {
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
-
-    const formattedDate = date
-      ? new Date(date + 'T00:00:00').toLocaleDateString('fr-FR', {
-          weekday: 'long',
-          day: 'numeric',
-          month: 'long',
-          year: 'numeric',
-        })
-      : 'à définir'
-
-    const lines = [
-      'Bonjour AURALUX ✨',
-      '',
-      'Je souhaite réserver une séance :',
-      `• Prénom & Nom : ${name || '—'}`,
-      `• Téléphone : ${phone || '—'}`,
-      `• Date souhaitée : ${formattedDate}`,
-      `• Prestation : ${prestation}`,
-    ]
-
-    if (message.trim()) {
-      lines.push(`• Ma vision : ${message.trim()}`)
-    }
-
-    lines.push('', 'Merci beaucoup ! 💅')
-
-    const text = encodeURIComponent(lines.join('\n'))
-    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`
-    window.open(url, '_blank', 'noopener,noreferrer')
+    window.open(SNAPCHAT_URL, '_blank', 'noopener,noreferrer')
   }
 
   const fieldClass =
@@ -159,7 +131,7 @@ export function BookingForm() {
             </button>
 
             <p className="mt-4 text-center text-xs text-ivory/50">
-              Votre demande sera envoyée via WhatsApp.
+              Votre demande sera envoyée via Snapchat.
             </p>
           </form>
         </Reveal>

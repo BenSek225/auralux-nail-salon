@@ -9,29 +9,54 @@ type Creation = { src: string; alt: string; label: string }
 
 const creations: Creation[] = [
   {
-    src: '/images/nail-butterfly.png',
-    alt: 'Nail art papillon iridescent avec détails dorés sur mains élégantes',
-    label: 'Papillon iridescent',
+    src: '/images/nail-floral-rose-or.jpeg',
+    alt: 'Ongles amande blanc et rose avec motifs floraux peints à la main et perles dorées',
+    label: 'Floral rose & or',
   },
   {
-    src: '/images/nail-gold-chrome.png',
-    alt: 'Manucure chrome doré effet miroir',
-    label: 'Chrome doré',
+    src: '/images/nail-botanique-or.jpeg',
+    alt: 'Nail art botanique : fleurs orangées et bleues sur ongles transparents avec perles dorées',
+    label: 'Botanique dorée',
   },
   {
-    src: '/images/nail-floral.png',
-    alt: 'Nail art floral rose peint à la main avec touches dorées',
-    label: 'Floral rosé',
+    src: '/images/nail-bleu-etoile-polka.jpeg',
+    alt: 'French rose avec motifs bleus, étoiles dorées et myrtilles peintes',
+    label: 'Étoiles & polka',
   },
   {
-    src: '/images/nail-jeweled.png',
-    alt: 'Bouts des ongles ornés de cristaux et strass dorés',
-    label: 'Bijoux & cristaux',
+    src: '/images/nail-bijou-or-rose.jpeg',
+    alt: 'Ongles rose pâle avec ornements 3D dorés et charm bijou',
+    label: 'Bijoux dorés',
   },
   {
-    src: '/images/img/nail.jpeg',
-    alt: 'Création originale : ongles chrome doré avec motif papillon orange et perles dorées',
-    label: 'Papillon doré',
+    src: '/images/nail-french-fleur-rouge.jpeg',
+    alt: 'French manucure carrée blanc nacré avec fleur rouge peinte et perle dorée',
+    label: 'French & fleur',
+  },
+  {
+    src: '/images/nail.jpeg',
+    alt: 'Ongles chrome doré avec motif papillon orange et perles dorées',
+    label: 'Chrome papillon',
+  },
+  {
+    src: '/images/nail-stiletto-papillon-teal.jpeg',
+    alt: 'Stiletto : papillon orange et teal sur french transparent, accent chrome doré',
+    label: 'Papillon teal',
+  },
+  {
+    src: '/images/nail-leopard-rose-or.jpeg',
+    alt: 'Ongles amande rose avec imprimé léopard bordeaux, gold foil et french blanc',
+    label: 'Léopard & or',
+  },
+  {
+    src: '/images/nail-stiletto-rose-marbre.jpeg',
+    alt: 'Stiletto rose vif avec effet marbre, papillons bleus et rhinestones',
+    label: 'Marbre rose',
+  },
+  {
+    src: '/images/nail-papillon-bleu-etoile.jpeg',
+    alt: 'Ongles blanc et rose avec papillons bleus peints, étoiles et perles',
+    label: 'Papillon bleu',
   },
 ]
 
@@ -47,7 +72,7 @@ function GalleryCard({ c, i }: { c: Creation; i: number }) {
   return (
     <motion.div
       ref={ref}
-      className={`group${i === 4 ? ' col-span-2 lg:col-span-1' : ''}`}
+      className="group"
       style={{ perspective: '800px' }}
       initial={{ opacity: 0, y: 28 }}
       whileInView={{ opacity: 1, y: 0 }}

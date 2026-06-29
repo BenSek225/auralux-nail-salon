@@ -61,7 +61,7 @@ export function Navbar() {
         {/* Left: wordmark */}
         <a href="#accueil" aria-label="AURALUX — Accueil">
           <Image
-            src="/images/img/logo_texte-removebg-preview.png"
+            src="/images/logo_texte-removebg-preview.png"
             alt="AURALUX"
             width={120}
             height={28}
@@ -121,7 +121,7 @@ export function Navbar() {
       >
         <div className="flex h-16 items-center justify-between px-6">
           <Image
-            src="/images/img/logo_texte-removebg-preview.png"
+            src="/images/logo_texte-removebg-preview.png"
             alt="AURALUX"
             width={120}
             height={28}

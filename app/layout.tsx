@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   description:
     "L'art de la manucure d'exception. Des créations uniques, imaginées sur-mesure pour révéler votre véritable identité.",
   openGraph: {
-    images: [{ url: '/images/img/logo.jpeg' }],
+    images: [{ url: '/images/logo.jpeg' }],
   },
 }
 

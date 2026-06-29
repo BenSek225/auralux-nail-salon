@@ -54,7 +54,7 @@ export function Hero() {
           transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut' }}
         >
           <Image
-            src="/images/img/logo_simple-removebg-preview.png"
+            src="/images/logo_simple-removebg-preview.png"
             alt="Emblème AURALUX : une main délicate tenant un cristal lumineux dans une arche dorée"
             fill
             priority
@@ -70,7 +70,7 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
         >
           <Image
-            src="/images/img/logo_texte-removebg-preview.png"
+            src="/images/logo_texte-removebg-preview.png"
             alt="AURALUX"
             fill
             priority
